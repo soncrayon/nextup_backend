@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: lala020485
+  pool: 5
+  timeout: 5000
+  host: localhost
+development:
+  <<: *default
+  database: nextup
+test:
+  <<: *default
+  database: <%= ENV['NEXTUP_TEST_DB'] %>
+production:
+  <<: *default
+  database: <%= ENV['NEXTUP_DB'] %>
